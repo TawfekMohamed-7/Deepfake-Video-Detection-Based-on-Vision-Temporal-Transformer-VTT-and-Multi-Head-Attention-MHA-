@@ -35,6 +35,29 @@ The system is built on a modular architecture:
 
 ---
 
+## 📊 Dataset Information
+
+The model was trained and validated using high-quality benchmarks to ensure robustness against various deepfake generation techniques. These datasets were scanned and processed directly from Kaggle.
+
+### 1. Primary Data Sources
+| Dataset | Provider | Description | Link |
+| :--- | :--- | :--- | :--- |
+| **FaceForensics++ (FF-C23)** | TU Munich | A benchmark dataset containing various facial manipulations, used here in its compressed C23 version. | [Kaggle Link](https://www.kaggle.com/datasets/xdxd003/ff-c23) |
+| **Celeb-DF-v2** | Academic | A large-scale, challenging dataset with high-quality deepfake videos featuring celebrities. | [Kaggle Link](https://www.kaggle.com/datasets/reubensuju/celeb-df-v2) |
+
+### 2. Data Preparation & Statistics
+To ensure the highest accuracy during training, the following steps were implemented in the `Project V7.ipynb` notebook:
+
+* **Automated Scanning:** The system performs a full scan of the `DFD`, `FaceForensics++`, and `Celeb-DF` directories to index all available samples.
+* **Balanced Sampling:** The dataset was automatically balanced (50% Real / 50% Fake) to avoid model bias during the learning process.
+* **Train/Val/Test Split:** * **Training (70%):** Used for learning temporal artifacts using the VTT-MHA architecture.
+    * **Validation (15%):** Used for real-time hyperparameter tuning.
+    * **Testing (15%):** Used for final performance evaluation on unseen data.
+* **Preprocessing:** Each video was processed to extract 8 sequential frames focusing on facial regions using **YOLOv8** for precise localization.
+
+---
+---
+
 ## 🧠 Model Details
 The system uses a unique hybrid approach:
 * **Face Detection:** YOLOv8 identifies and crops the facial region.
