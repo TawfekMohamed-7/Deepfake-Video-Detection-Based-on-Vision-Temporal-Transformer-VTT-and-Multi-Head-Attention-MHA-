@@ -1,0 +1,15 @@
+# AI and Deep Learning
+tensorflow>=2.10.0
+ultralytics>=8.0.0
+opencv-python
+numpy
+
+# Web and API Framework
+fastapi
+uvicorn
+python-multipart
+jinja2
+
+# Utilities
+Pillow
+h5py
