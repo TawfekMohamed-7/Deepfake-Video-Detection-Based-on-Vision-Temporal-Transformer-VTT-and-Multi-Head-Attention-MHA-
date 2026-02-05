@@ -1,38 +1,44 @@
-# Deepfake Video Detection Based on VTT and MHA
+# Deepfake Video Detection Based on Vision Temporal Transformer (VTT) and Multi-Head Attention (MHA)
 
-A high-performance deepfake detection system utilizing **Vision Temporal Transformer (VTT)** and **Multi-Head Attention (MHA)** to identify facial manipulations. This project focuses on analyzing spatial-temporal inconsistencies across video frames to provide accurate detection results.
+A comprehensive deepfake detection ecosystem utilizing a custom-trained **VTT-MHA** model. This project features a unified backend that supports both a **Web Dashboard** and a **Mobile Application**.
 
 ---
 
 ## 🚀 Key Features
-* **Vision Temporal Transformer (VTT):** Advanced architecture for capturing long-range temporal dependencies in video sequences.
-* **Multi-Head Attention (MHA):** Enhances model focus on localized facial artifacts and inconsistencies.
-* **Real-time Face Detection:** Integrated with **YOLOv8** for precise face localization and tracking.
-* **Hybrid Architecture:** Combines deep learning inference with a scalable mobile and web-ready backend.
+* **Custom VTT-MHA Model:** High-accuracy detection focusing on spatial-temporal inconsistencies.
+* **Multi-Platform Support:** Fully functional Web interface and Mobile app.
+* **Real-time Processing:** Integrated with **YOLOv8** for fast and precise face localization.
+* **Automated Deployment:** Ready-to-use batch scripts for Windows environments.
 
 ---
 
 ## 🏗️ Project Architecture
-
-The system follows a multi-platform modular architecture:
-1. **Preprocessing:** Frames are extracted and faces are detected using YOLOv8.
-2. **Feature Extraction:** Spatial and temporal features are processed via the VTT backbone.
-3. **Classification:** The MHA layers weigh the importance of specific frame features to determine the final "Real" or "Fake" score.
-4. **Interface:** * **Web Dashboard:** A responsive web interface for desktop users to upload and analyze videos.
-    * **Mobile App:** A dedicated mobile application for on-the-go deepfake detection.
-    * **Backend API:** A Python-based FastAPI/Flask server that powers both platforms.
+The system is built on a modular architecture:
+1. **Inference Engine:** Processes videos using the custom-trained `.h5` model.
+2. **Backend API:** A Python-based server (FastAPI/Flask) that handles requests from all interfaces.
+3. **Frontend Layers:** * **Web:** Responsive dashboard for desktop analysis.
+    * **Mobile:** Dedicated app for portable detection.
 
 ---
 
 ## 📂 Repository Structure
+
 | File/Folder | Description |
 | :--- | :--- |
-| `backend/` | Contains the API and video processing logic. |
-| `Mobile App/` | Source code for the mobile client interface. |
-| `best_lipinc_model_enhanced.h5` | The core trained VTT-MHA model weights. |
-| `updated_api.py` | Main script for handling inference requests. |
-| `yolov8n.pt` | Pre-trained weights for the YOLOv8 face detector. |
-| `start_all.bat` | Automation script to launch both backend and frontend services. |
+| `LastV/` | Core execution folder containing the Backend and API integration. |
+| `LastV/updated_api.py` | Main entry point that launches both Backend and Frontend services. |
+| `src/` | Source code for the Web Frontend interface. |
+| `Mobile App/` | Source code for the mobile client application. |
+| `best_lipinc_model_enhanced.h5` | **Custom-trained model** based on VTT and MHA (Result of research). |
+| `yolov8n.pt` | YOLOv8 weights used for high-precision face localization. |
+| `start_all.bat` | Automation script to launch the entire ecosystem in one click. |
+
+---
+
+## 🧠 Model Details
+The system uses a unique hybrid approach:
+* **Face Detection:** YOLOv8 identifies and crops the facial region.
+* **Deepfake Classification:** The **Vision Temporal Transformer (VTT)** analyzes the sequence of frames, while **Multi-Head Attention (MHA)** focuses on specific artifact-heavy regions to determine if the video is real or fake.
 
 ---
 
@@ -40,9 +46,10 @@ The system follows a multi-platform modular architecture:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/YourUsername/Deepfake-Video-Detection-Based-on-VTT-and-MHA-.git
-cd Deepfake-Video-Detection-Based-on-VTT-and-MHA-
+git clone [https://github.com/YourUsername/Deepfake-Detection-VTT-MHA.git](https://github.com/YourUsername/Deepfake-Detection-VTT-MHA.git)
+cd Deepfake-Detection-VTT-MHA
 ```
+
 ### 2. Install Dependencies
 Make sure you have a virtual environment active, then run:
 ```
